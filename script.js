@@ -6,7 +6,7 @@
   This file contains the code that draws the game elements onto the canvas.
 
   Author: Humayra Chowdhury
-  Version: 2.0
+  Version: 2.1
   File: script.js
 */
 
@@ -93,7 +93,14 @@ function draw() {
 
     // Draw ball
     ctx.fillRect(ballX, ballY, ballRadius, ballRadius); // x, y, width, height
-    }
+
+    // Draw score 
+    ctx.font = "100px Arial";
+    ctx.textAlign = "center";
+    ctx.fillText(score, canvas.width / 2, canvas.height / 2 + 35);
+
+  }
+
 }
 
 // Call draw() repeatedly 
