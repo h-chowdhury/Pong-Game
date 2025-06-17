@@ -6,7 +6,7 @@
   This file contains the code that draws the game elements onto the canvas.
 
   Author: Humayra Chowdhury
-  Version: 1.2
+  Version: 1.3
   File: script.js
 */
 
@@ -23,7 +23,8 @@ const paddleSpeed = 5;
 // Initial ball information
 let ballX = 780;
 let ballY = 300;
-const ballSpeed = 3;
+const ballXSpeed = 3;
+const ballYSpeed = 2;
 
 // Track key presses
 const keys = {};
@@ -46,6 +47,11 @@ function draw() {
   if ((keys['s'] || keys['arrowdown']) && paddleY < canvas.height - paddleHeight) {
     paddleY += paddleSpeed; // Move down
   }
+
+  // Update ball position
+  ballX -= ballXSpeed; // Move left
+  ballY += ballYSpeed; // Move down
+  
 
   // Clear canvas
   ctx.fillStyle = 'black';
