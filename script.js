@@ -6,7 +6,7 @@
   This file contains the code that draws the game elements onto the canvas.
 
   Author: Humayra Chowdhury
-  Version: 1.5
+  Version: 1.6
   File: script.js
 */
 
@@ -17,8 +17,10 @@ const canvas = document.getElementById('game-canvas');
 const ctx = canvas.getContext('2d');
 
 // Initial paddle information
+const paddleX = 20;
 let paddleY = 250;
 const paddleHeight = 100;
+const paddleWidth = 10;
 const paddleSpeed = 5;
 
 // Initial ball information
@@ -59,13 +61,18 @@ function draw() {
       ballYSpeed = -ballYSpeed;
     }
 
+    // Collision detection for paddle
+    if ((ballX <= paddleX + paddleWidth) && (ballY >= paddleY) && (ballY <= paddleY + paddleHeight)) {
+      ballXSpeed = -ballXSpeed;
+    }
+
   // Clear canvas
   ctx.fillStyle = 'black';
   ctx.fillRect(0, 0, canvas.width, canvas.height)
 
   // Draw paddle
   ctx.fillStyle = "white";
-  ctx.fillRect(20, paddleY, 10, paddleHeight); // x, y, width, height
+  ctx.fillRect(paddleX, paddleY, paddleWidth, paddleHeight); // x, y, width, height
 
   // Draw ball
   ctx.fillRect(ballX, ballY, ballRadius, ballRadius); // x, y, width, height
