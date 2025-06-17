@@ -6,7 +6,7 @@
   This file contains the code that draws the game elements onto the canvas.
 
   Author: Humayra Chowdhury
-  Version: 1.4
+  Version: 1.5
   File: script.js
 */
 
@@ -24,8 +24,8 @@ const paddleSpeed = 5;
 // Initial ball information
 let ballX = 780;
 let ballY = 300;
-const ballXSpeed = 3;
-const ballYSpeed = 2;
+let ballXSpeed = 3;
+let ballYSpeed = 2;
 const ballRadius = 10;
 
 // Track key presses
