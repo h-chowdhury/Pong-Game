@@ -6,7 +6,7 @@
   This file contains the code that draws the game elements onto the canvas.
 
   Author: Humayra Chowdhury
-  Version: 1.9
+  Version: 2.0
   File: script.js
 */
 
@@ -35,6 +35,7 @@ const keys = {};
 
 // Game over status (set to true when ball goes out of bounds)
 let gameOver = false;
+let score = 0;
 
 document.addEventListener ('keydown', (e) => {
   keys[e.key.toLowerCase()] = true;
@@ -73,12 +74,13 @@ function draw() {
       // Collision detection for paddle
       if ((ballX <= paddleX + paddleWidth) && (ballY >= paddleY) && (ballY <= paddleY + paddleHeight)) {
         ballXSpeed = -ballXSpeed;
+        score += 1;
       }
 
       // Detect ball going out of bounds
       if (ballX < 0 - ballRadius - 2) {
         gameOver = true;
-        alert("Game Over!");
+        alert("Game Over! Your final score is " + score + ".");
       }
 
     // Clear canvas
