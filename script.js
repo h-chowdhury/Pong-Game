@@ -6,10 +6,11 @@
   This file contains the code that draws the game elements onto the canvas.
 
   Author: Humayra Chowdhury
-  Version: 1.3
+  Version: 1.4
   File: script.js
 */
 
+// Get the canvas element from the HTML
 const canvas = document.getElementById('game-canvas');
 
 // Allows canvas to be used in drawing 2D graphics
@@ -25,6 +26,7 @@ let ballX = 780;
 let ballY = 300;
 const ballXSpeed = 3;
 const ballYSpeed = 2;
+const ballRadius = 10;
 
 // Track key presses
 const keys = {};
@@ -51,7 +53,11 @@ function draw() {
   // Update ball position
   ballX -= ballXSpeed; // Move left
   ballY += ballYSpeed; // Move down
-  
+
+    // Collision detection for top & bottom wall
+    if (ballY <= 0 || ballY >= canvas.height - ballRadius) {
+      ballYSpeed = -ballYSpeed;
+    }
 
   // Clear canvas
   ctx.fillStyle = 'black';
@@ -62,7 +68,7 @@ function draw() {
   ctx.fillRect(20, paddleY, 10, paddleHeight); // x, y, width, height
 
   // Draw ball
-  ctx.fillRect(ballX, ballY, 10, 10); // x, y, width, height
+  ctx.fillRect(ballX, ballY, ballRadius, ballRadius); // x, y, width, height
 
 }
 
