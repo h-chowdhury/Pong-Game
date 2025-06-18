@@ -6,7 +6,7 @@
   This file contains the code that draws the game elements onto the canvas.
 
   Author: Humayra Chowdhury
-  Version: 2.3
+  Version: 2.4
   File: script.js
 */
 
@@ -111,9 +111,11 @@ function draw() {
       }
 
       // Collision detection for paddle
-      if ((ballX == paddleX + paddleWidth) && (ballY >= paddleY) && (ballY <= paddleY + paddleHeight)) {
+      if ((paddleX < ballX && ballX < paddleX + paddleWidth) && (ballY >= paddleY) && (ballY <= paddleY + paddleHeight)) {
         ballXSpeed = -ballXSpeed;
         score += 1;
+        ballXSpeed *= 1.05;
+        ballYSpeed *= 1.05;
       }
 
       // Detect ball going out of bounds
