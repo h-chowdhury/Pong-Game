@@ -117,7 +117,7 @@ function draw() {
       }
 
       // Detect ball going out of bounds
-      if (ballX < 0 - ballRadius - 2) {
+      if (ballX < 0 - ballRadius) {
         gameOver = true;
         document.getElementById('popup-overlay').style.display = "flex";
       }
