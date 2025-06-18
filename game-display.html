@@ -6,7 +6,7 @@
   This file sets up the canvas element, loads necessary CSS and JavaScript files, and renders the game.
 
   Author: Humayra Chowdhury
-  Version: 1.0
+  Version: 1.1
   File: game-display.html
 -->
 
@@ -25,6 +25,15 @@
 
     <!-- The main game canvas where game is rendered -->
     <canvas id="game-canvas" width="800" height="600"></canvas>
+
+    <div id="popup-overlay">
+      <div id="popup-content">
+        <h2>Game Over</h2>
+        <p>Your final score is ...</p>
+        <button id="play-again-button">Play Again</button>
+        <button id="home-button">Return Home</button>
+      </div>
+    </div>
 
   </body>
 
