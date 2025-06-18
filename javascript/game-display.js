@@ -111,7 +111,7 @@ function draw() {
       }
 
       // Collision detection for paddle
-      if ((ballX <= paddleX + paddleWidth) && (ballY >= paddleY) && (ballY <= paddleY + paddleHeight)) {
+      if ((ballX == paddleX + paddleWidth) && (ballY >= paddleY) && (ballY <= paddleY + paddleHeight)) {
         ballXSpeed = -ballXSpeed;
         score += 1;
       }
