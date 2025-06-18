@@ -6,12 +6,48 @@
   This file contains the code that draws the game elements onto the canvas.
 
   Author: Humayra Chowdhury
-  Version: 2.2
+  Version: 2.3
   File: script.js
 */
 
+
+
+/* ========================================
+    Popup overlay code
+      This section contains the code to display a popup overlay when the game is over, and the 
+      functionality for the restart and home buttons.
+   ======================================== */
+
 // Hide the popup overlay initially
 document.getElementById('popup-overlay').style.display = "none";
+
+// 'Play again' button functionality
+document.getElementById('play-again-button').addEventListener('click', () => {
+  // Reset game variables
+  paddleY = 250;
+  ballX = 780;
+  ballY = Math.random() * (canvas.height - ballRadius);
+  ballXSpeed = 3;
+  ballYSpeed = 2;
+  score = 0;
+  gameOver = false;
+
+  // Hide the popup overlay
+  document.getElementById('popup-overlay').style.display = "none";
+});
+
+// 'Home' button functionality
+document.getElementById('home-button').addEventListener('click', () => {
+  // Redirect to the home page
+  window.location.href = "index.html";
+});
+
+
+
+/* ========================================
+    Game logic
+      This section contains the main game logic, including paddle and ball movement,
+   ======================================== */
 
 // Get the canvas element from the HTML
 const canvas = document.getElementById('game-canvas');
