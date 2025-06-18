@@ -1,4 +1,5 @@
   body {
+    color: white;
     background: #111;
     display: flex;
     justify-content: center;
@@ -10,3 +11,26 @@
   canvas {
     border: 1em solid white;
   }
+
+  #popup-overlay {
+  text-align: center;;
+  position: fixed;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  width: 100%; 
+  height: 100%; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); 
+  z-index: 2; 
+  cursor: pointer; 
+}
+
+#popup-content {
+  background-color: grey;
+  border-radius: 0.5em;
+  padding: 1em;
+}
