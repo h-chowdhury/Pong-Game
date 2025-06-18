@@ -6,9 +6,12 @@
   This file contains the code that draws the game elements onto the canvas.
 
   Author: Humayra Chowdhury
-  Version: 2.1
+  Version: 2.2
   File: script.js
 */
+
+// Hide the popup overlay initially
+document.getElementById('popup-overlay').style.display = "none";
 
 // Get the canvas element from the HTML
 const canvas = document.getElementById('game-canvas');
@@ -80,7 +83,7 @@ function draw() {
       // Detect ball going out of bounds
       if (ballX < 0 - ballRadius - 2) {
         gameOver = true;
-        alert("Game Over! Your final score is " + score + ".");
+        document.getElementById('popup-overlay').style.display = "flex";
       }
 
     // Clear canvas
