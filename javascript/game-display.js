@@ -6,8 +6,8 @@
   This file contains the code that draws the game elements onto the canvas.
 
   Author: Humayra Chowdhury
-  Version: 2.7
-  File: script.js
+  Version: 2.8
+  File: game-display.js
 */
 
 
@@ -23,6 +23,10 @@ document.getElementById('popup-overlay').style.display = "none";
 
 // 'Play again' button functionality
 document.getElementById('play-again-button').addEventListener('click', () => {
+  // Play sound effect
+  const buttonSound = new Audio('sounds/button.mp3');
+  buttonSound.play();
+
   // Reset game variables
   paddleY = 250;
   ballX = 780;
@@ -38,8 +42,14 @@ document.getElementById('play-again-button').addEventListener('click', () => {
 
 // 'Home' button functionality
 document.getElementById('home-button').addEventListener('click', () => {
+  // Play sound effect
+  const buttonSound = new Audio('sounds/button.mp3');
+  buttonSound.play();
+
   // Redirect to the home page
-  window.location.href = "index.html";
+  buttonSound.onended = () => {
+    window.location.href = 'index.html';
+  };
 });
 
 
@@ -47,7 +57,13 @@ document.getElementById('home-button').addEventListener('click', () => {
 /* ========================================
     Game logic
       This section contains the main game logic, including paddle and ball movement,
+      collision detection, and score tracking.
    ======================================== */
+
+// Play background music
+const backgroundMusic = new Audio('sounds/backgroundMusic.mp3');
+backgroundMusic.loop = true; // Loop the music
+backgroundMusic.play(); // Start playing the music
 
 // Get the canvas element from the HTML
 const canvas = document.getElementById('game-canvas');
@@ -102,16 +118,28 @@ function draw() {
 
       // Collision detection for top & bottom wall
       if (ballY <= 0 || ballY >= canvas.height - ballRadius) {
+        // Play sound effect
+        const wallSound = new Audio('sounds/wallCollision.mp3');
+        wallSound.play();
+
         ballYSpeed = -ballYSpeed;
       }
 
       // Collision detection for right wall 
       if (ballX >= canvas.width - ballRadius) {
+        // Play sound effect
+        const wallSound = new Audio('sounds/wallCollision.mp3');
+        wallSound.play();
+
         ballXSpeed = -ballXSpeed;
       }
 
       // Collision detection for paddle
       if ((paddleX < ballX && ballX < paddleX + paddleWidth) && (ballY >= paddleY) && (ballY <= paddleY + paddleHeight)) {
+        // Play sound effect
+        const paddleSound = new Audio('sounds/paddleCollision.mp3');
+        paddleSound.play();
+
         ballXSpeed = -ballXSpeed;
         score += 1;
         ballXSpeed *= 1.05;
@@ -120,6 +148,10 @@ function draw() {
 
       // Detect ball going out of bounds
       if (ballX < 0 - ballRadius) {
+        // Play sound effect
+        const gameOverSound = new Audio('sounds/gameOver.mp3');
+        gameOverSound.play();
+
         gameOver = true;
 
         // Display popup overlay with final score
