@@ -6,7 +6,7 @@
   This file contains the code that draws the game elements onto the canvas.
 
   Author: Humayra Chowdhury
-  Version: 2.6
+  Version: 2.7
   File: script.js
 */
 
@@ -121,8 +121,15 @@ function draw() {
       // Detect ball going out of bounds
       if (ballX < 0 - ballRadius) {
         gameOver = true;
+
+        // Display popup overlay with final score
         document.getElementById('popup-overlay').style.display = "flex";
         document.getElementById('final-score-text').innerText = ("Your final score is " + score);
+
+        // Update best score in local storage
+        if (localStorage.getItem('bestScore') === null || score > localStorage.getItem('bestScore')) {
+          localStorage.setItem('bestScore', score);
+        }
       }
 
     // Clear canvas
