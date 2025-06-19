@@ -11,6 +11,11 @@
   File: index.js
 */
 
+// Play background music
+const backgroundMusic = new Audio('sounds/homepageMusic.mp3');
+backgroundMusic.loop = true; // Loop the music
+backgroundMusic.play(); // Start playing the music
+
 
 /* ========================================
     'Best score' code
@@ -30,7 +35,17 @@ best_score_text.innerText = "Best score: " + localStorage.getItem('bestScore');
    ======================================== */
 
 function start_game () {
-  window.location.href = "game-display.html";
+  // Stop the background music
+  backgroundMusic.pause(); 
+
+  // Play sound effect
+  const startSound = new Audio('sounds/gameStart.mp3');
+  startSound.play();
+
+  // Redirect to the game display page
+  startSound.onended = () => {
+    window.location.href = "game-display.html";
+  };
 }
 
 let start_game_button = document.getElementById("start-game-button");
