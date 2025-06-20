@@ -24,7 +24,7 @@ document.getElementById('popup-overlay').style.display = "none";
 // 'Play again' button functionality
 document.getElementById('play-again-button').addEventListener('click', () => {
   // Play sound effect
-  const buttonSound = new Audio('sounds/button.mp3');
+  const buttonSound = new Audio('sounds/buttonClick.mp3');
   buttonSound.play();
 
   // Reset game variables
@@ -43,7 +43,7 @@ document.getElementById('play-again-button').addEventListener('click', () => {
 // 'Home' button functionality
 document.getElementById('home-button').addEventListener('click', () => {
   // Play sound effect
-  const buttonSound = new Audio('sounds/button.mp3');
+  const buttonSound = new Audio('sounds/buttonClick.mp3');
   buttonSound.play();
 
   // Redirect to the home page
@@ -61,7 +61,7 @@ document.getElementById('home-button').addEventListener('click', () => {
    ======================================== */
 
 // Play background music
-const backgroundMusic = new Audio('sounds/backgroundMusic.mp3');
+const backgroundMusic = new Audio('sounds/gameMusic.mp3');
 backgroundMusic.loop = true; // Loop the music
 backgroundMusic.play(); // Start playing the music
 
