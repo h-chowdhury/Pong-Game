@@ -26,7 +26,7 @@ if (localStorage.getItem('bestScore') === null) {
 }
 
 let best_score_text = document.getElementById("best-score-text");
-best_score_text.innerText = "Best score: " + localStorage.getItem('bestScore');
+best_score_text.innerText = "Highscore: " + localStorage.getItem('bestScore');
 
 
 
