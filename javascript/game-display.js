@@ -6,7 +6,7 @@
   This file contains the code that draws the game elements onto the canvas.
 
   Author: Humayra Chowdhury
-  Version: 2.9
+  Version: 3.0
   File: game-display.js
 */
 
@@ -18,6 +18,10 @@
       functionality for the restart and home buttons.
    ======================================== */
 
+// Create audio elements for sound effects
+const gameOverMusic = new Audio('sounds/gameOverMusic.mp3');
+const backgroundMusic = new Audio('sounds/gameMusic.mp3');
+
 // Hide the popup overlay initially
 document.getElementById('popup-overlay').style.display = "none";
 
@@ -26,6 +30,11 @@ document.getElementById('play-again-button').addEventListener('click', () => {
   // Play sound effect
   const buttonSound = new Audio('sounds/buttonClick.mp3');
   buttonSound.play();
+
+  // Play background music
+  gameOverMusic.pause();
+  backgroundMusic.loop = true; // Loop the music
+  backgroundMusic.play(); // Start playing the music
 
   // Reset game variables
   paddleY = 250;
@@ -61,7 +70,6 @@ document.getElementById('home-button').addEventListener('click', () => {
    ======================================== */
 
 // Play background music
-const backgroundMusic = new Audio('sounds/gameMusic.mp3');
 backgroundMusic.loop = true; // Loop the music
 backgroundMusic.play(); // Start playing the music
 
@@ -154,7 +162,6 @@ function draw() {
 
         // Pause background music and play game over music
         backgroundMusic.pause();
-        const gameOverMusic = new Audio('sounds/gameOverMusic.mp3');
         gameOverMusic.loop = true;
         gameOverMusic.play();
 
