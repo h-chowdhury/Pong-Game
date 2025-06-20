@@ -1,24 +1,61 @@
 * {
   color: white;
-  font-family: 'Tiny5';
-}
-
-header h1 {
-  text-align: center;
   font-family: 'Press Start 2P';
 }
 
+header {
+  margin-bottom: 2em;
+}
+
+header h1 {
+  font-size: 3em;
+  text-align: center;
+}
+
 #game-description {
+  font-size: 1em;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 2em;
+  gap: 5em;
 }
 
 body {
-  background-color: black;
+  background: black;
+  background-image: url('../images/homepageBackground.png');
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  color: white;
+}
+
+button {
+  font-family: 'Press Start 2P';
+  border: 4px solid #fff;
+  background-color: black;
+  color: white;
+  padding: 10px 15px;
+  margin-top: 20px;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+#crown-icon {
+  width: 2em;
+  height: 2em;
+  padding-bottom: 0.75em;
+}
+
+#best-score-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
 }
