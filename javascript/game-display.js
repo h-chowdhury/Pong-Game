@@ -189,9 +189,9 @@ function draw() {
     ctx.fillRect(ballX, ballY, ballRadius, ballRadius); // x, y, width, height
 
     // Draw score 
-    ctx.font = "100px Arial";
+    ctx.font = "100px 'Press Start 2P' ";
     ctx.textAlign = "center";
-    ctx.fillText(score, canvas.width / 2, canvas.height / 2 + 35);
+    ctx.fillText(score, canvas.width / 2, canvas.height / 2 + 55);
 
   }
 
