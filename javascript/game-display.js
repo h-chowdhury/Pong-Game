@@ -6,7 +6,7 @@
   This file contains the code that draws the game elements onto the canvas.
 
   Author: Humayra Chowdhury
-  Version: 2.8
+  Version: 2.9
   File: game-display.js
 */
 
@@ -151,6 +151,12 @@ function draw() {
         // Play sound effect
         const gameOverSound = new Audio('sounds/gameOver.mp3');
         gameOverSound.play();
+
+        // Pause background music and play game over music
+        backgroundMusic.pause();
+        const gameOverMusic = new Audio('sounds/gameOverMusic.mp3');
+        gameOverMusic.loop = true;
+        gameOverMusic.play();
 
         gameOver = true;
 
