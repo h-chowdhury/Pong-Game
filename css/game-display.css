@@ -1,11 +1,12 @@
   * {
   color: white;
-  font-family: 'Tiny5';
+  font-family: 'Press Start 2P';
 }
   
   body {
     color: white;
     background: #111;
+    background-image: url('../images/gameBackground.png');
     display: flex;
     justify-content: center;
     align-items: center;
